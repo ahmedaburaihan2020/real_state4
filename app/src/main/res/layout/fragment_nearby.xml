@@ -23,6 +23,13 @@
             app:strokeColor="#1B6BB3"
             app:strokeWidth="1dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Companies by Industry"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homerecyclerview"
@@ -33,17 +40,6 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/home_recyclerview_item"/>
-
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/parentRecyclerView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_below="@+id/carouselView"-->
-<!--            android:orientation="vertical"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--            tools:listitem="@layout/parent_recyclerview_item" />-->
-
 
     </LinearLayout>
 

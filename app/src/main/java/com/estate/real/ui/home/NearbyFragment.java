@@ -1,37 +1,25 @@
 package com.estate.real.ui.home;
 
 
-import android.app.Notification;
-import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.estate.real.R;
 import com.estate.real.ui.HomeRecyclerAdapter;
 import com.estate.real.ui.HomeRecyclerViewData;
 import com.estate.real.ui.Item;
-import com.estate.real.ui.ParentItem;
-import com.estate.real.ui.ParentRecyclerAdapter;
-import com.estate.real.ui.RecyclerAdapter;
 import com.estate.real.ui.RecyclerFragment;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class NearbyFragment extends Fragment {
@@ -89,7 +77,7 @@ public class NearbyFragment extends Fragment {
         //    private RecyclerView
         ArrayList<HomeRecyclerViewData> list = new ArrayList<>();
         list.add(new HomeRecyclerViewData("Professional Services", R.drawable.im1));
-        list.add(new HomeRecyclerViewData("Contractor", R.drawable.im2));
+        list.add(new HomeRecyclerViewData("Contractor Services", R.drawable.im2));
         list.add(new HomeRecyclerViewData("Hardware Trading", R.drawable.im3));
         list.add(new HomeRecyclerViewData("Whole Seller", R.drawable.im4));
         list.add(new HomeRecyclerViewData("Whole Sale Dealer", R.drawable.im5));
