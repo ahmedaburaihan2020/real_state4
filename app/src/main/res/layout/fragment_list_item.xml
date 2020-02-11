@@ -18,11 +18,13 @@
         android:text="Experienced Services"
         android:textColor="#fff"
         android:textSize="18sp"
+        android:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnViewAll"
         app:layout_constraintEnd_toEndOf="@+id/btnViewAll"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="@id/btnViewAll"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnViewAll"
@@ -33,6 +35,7 @@
         android:background="#1B6AA3"
         android:clickable="true"
         android:text="VIEW ALL"
+        android:elevation="0dp"
         android:textColor="#fff"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"

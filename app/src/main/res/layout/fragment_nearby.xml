@@ -6,6 +6,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/home_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -33,107 +34,15 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/home_recyclerview_item"/>
 
-<!--        <GridLayout-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/parentRecyclerView"-->
 <!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="200dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:columnCount="4"-->
-<!--            android:gravity="center"-->
-<!--            android:padding="10dp"-->
-<!--            android:rowCount="2">-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                android:id="@+id/profile_image"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_rowWeight="1"-->
-<!--                android:src="@drawable/im1"-->
-<!--                app:civ_border_color="#FFFFFF"-->
-<!--                app:civ_border_width="2dp" />-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                android:id="@+id/profile_image2"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_rowWeight="1"-->
-<!--                android:src="@drawable/im2"-->
-<!--                app:civ_border_color="#FFFFFF"-->
-<!--                app:civ_border_width="2dp" />-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                android:id="@+id/profile_image3"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_rowWeight="1"-->
-<!--                android:src="@drawable/im3"-->
-<!--                app:civ_border_color="#FFFFFF"-->
-<!--                app:civ_border_width="2dp" />-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                android:id="@+id/profile_image5"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_rowWeight="1"-->
-<!--                android:src="@drawable/im4"-->
-<!--                app:civ_border_color="#FFFCFC"-->
-<!--                app:civ_border_width="2dp" />-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                android:id="@+id/profile_image6"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:src="@drawable/im5"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_rowWeight="1"-->
-<!--                app:civ_border_color="#FFFFFF"-->
-<!--                app:civ_border_width="2dp" />-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                android:id="@+id/profile_image8"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:src="@drawable/im6"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_rowWeight="1"-->
-<!--                app:civ_border_color="#FFFFFF"-->
-<!--                app:civ_border_width="2dp" />-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                android:id="@+id/profile_image9"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:src="@drawable/im7"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_rowWeight="1"-->
-<!--                app:civ_border_color="#FFFFFF"-->
-<!--                app:civ_border_width="2dp" />-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                android:id="@+id/profile_image10"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:src="@drawable/im8"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_rowWeight="1"-->
-<!--                app:civ_border_color="#FFFFFF"-->
-<!--                app:civ_border_width="2dp" />-->
-
-
-<!--        </GridLayout>-->
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/parentRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/carouselView"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/parent_recyclerview_item" />
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_below="@+id/carouselView"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            tools:listitem="@layout/parent_recyclerview_item" />-->
 
 
     </LinearLayout>

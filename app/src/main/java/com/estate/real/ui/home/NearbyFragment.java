@@ -26,6 +26,7 @@ import com.estate.real.ui.Item;
 import com.estate.real.ui.ParentItem;
 import com.estate.real.ui.ParentRecyclerAdapter;
 import com.estate.real.ui.RecyclerAdapter;
+import com.estate.real.ui.RecyclerFragment;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
@@ -33,16 +34,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class NearbyFragment extends Fragment  {
+public class NearbyFragment extends Fragment {
 
-    CarouselView carouselView;
-    int[] sampleImages  = {R.drawable.image1, R.drawable.image2,
+    private int[] sampleImages = {R.drawable.image1, R.drawable.image2,
             R.drawable.image3, R.drawable.image4, R.drawable.image5, R.drawable.image6};
-//    private RecyclerView
-    private ArrayList<HomeRecyclerViewData> list;
-    private RecyclerView homerecyclerview;
-    private HomeRecyclerAdapter homeRecyclerAdapter;
-
 
 
     public NearbyFragment() {
@@ -53,14 +48,11 @@ public class NearbyFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-
-
         // Inflate the layout for this fragment
         //LinearLayout parent = (LinearLayout) inflater.inflate(R.layout.fragment_nearby, container, false);
         ScrollView parent = (ScrollView) inflater.inflate(R.layout.fragment_nearby, container, false);
 
-        List<Item> dummyList = new ArrayList<>();
+        ArrayList<Item> dummyList = new ArrayList<>();
         dummyList.add(new Item("Modern Kitchen Renovation", "RM18,800", "TF ONE Construction", "Selangor", "16:30"));
         dummyList.add(new Item("Modern Kitchen Renovation", "RM18,800", "TF ONE Construction", "Selangor", "16:30"));
         dummyList.add(new Item("Modern Kitchen Renovation", "RM18,800", "TF ONE Construction", "Selangor", "16:30"));
@@ -69,65 +61,55 @@ public class NearbyFragment extends Fragment  {
         dummyList.add(new Item("Modern Kitchen Renovation", "RM18,800", "TF ONE Construction", "Selangor", "16:30"));
         dummyList.add(new Item("Modern Kitchen Renovation", "RM18,800", "TF ONE Construction", "Selangor", "16:30"));
 
-        String categories[] = new String[]{
+        String[] categories = new String[]{
                 "Experienced Services",
                 "Hot Deals",
                 "Recommended Real Estates",
                 "High Review Machineary"
         };
+//        LinearLayout layout = parent.findViewById(R.id.home_container);
 
-        List<ParentItem> parentList = new ArrayList<>();
-        parentList.add(new ParentItem(categories[0], dummyList));
-        parentList.add(new ParentItem(categories[1], dummyList));
-        parentList.add(new ParentItem(categories[2], dummyList));
-        parentList.add(new ParentItem(categories[3], dummyList));
+        RecyclerFragment[] fragments = new RecyclerFragment[4];
+        fragments[0] = RecyclerFragment.newInstance(categories[0], dummyList);
+        fragments[1] = RecyclerFragment.newInstance(categories[1], dummyList);
+        fragments[2] = RecyclerFragment.newInstance(categories[2], dummyList);
+        fragments[3] = RecyclerFragment.newInstance(categories[3], dummyList);
 
-        ParentRecyclerAdapter adapter =
-                new ParentRecyclerAdapter(parentList, new RecyclerAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View v, Item item) {
-                        Toast.makeText(getContext(), "Item Clicked :" + item.getName(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-        adapter.setOnItemClickListener(new ParentRecyclerAdapter.OnItemClickListener() {
-            @Override
-            public void onViewAllClick(View v, int listPosition) {
-                Toast.makeText(getContext(), "VIEW ALL", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        RecyclerView recyclerView = parent.findViewById(R.id.parentRecyclerView);
-        recyclerView.setAdapter(adapter);
+        getChildFragmentManager().beginTransaction()
+                .add(R.id.home_container, fragments[0])
+                .add(R.id.home_container, fragments[1])
+                .add(R.id.home_container, fragments[2])
+                .add(R.id.home_container, fragments[3])
+                .commit();
 
 
         //inflating home recycler adapter
 
-        homerecyclerview = parent.findViewById(R.id.homerecyclerview);
-        list = new ArrayList<>();
-        list.add(new HomeRecyclerViewData("Professional Services",R.drawable.im1));
-        list.add(new HomeRecyclerViewData("Contractor",R.drawable.im2));
-        list.add(new HomeRecyclerViewData("Hardware Trading",R.drawable.im3));
-        list.add(new HomeRecyclerViewData("Whole Seller",R.drawable.im4));
-        list.add(new HomeRecyclerViewData("Whole Sale Dealer",R.drawable.im5));
-        list.add(new HomeRecyclerViewData("Professional Services",R.drawable.im6));
-        list.add(new HomeRecyclerViewData("Professional Services",R.drawable.im7));
-        list.add(new HomeRecyclerViewData("Professional Services",R.drawable.im8));
+        RecyclerView homerecyclerview = parent.findViewById(R.id.homerecyclerview);
+        //    private RecyclerView
+        ArrayList<HomeRecyclerViewData> list = new ArrayList<>();
+        list.add(new HomeRecyclerViewData("Professional Services", R.drawable.im1));
+        list.add(new HomeRecyclerViewData("Contractor", R.drawable.im2));
+        list.add(new HomeRecyclerViewData("Hardware Trading", R.drawable.im3));
+        list.add(new HomeRecyclerViewData("Whole Seller", R.drawable.im4));
+        list.add(new HomeRecyclerViewData("Whole Sale Dealer", R.drawable.im5));
+        list.add(new HomeRecyclerViewData("Professional Services", R.drawable.im6));
+        list.add(new HomeRecyclerViewData("Professional Services", R.drawable.im7));
+        list.add(new HomeRecyclerViewData("Professional Services", R.drawable.im8));
 
-        homeRecyclerAdapter = new HomeRecyclerAdapter(getContext(),list);
+        HomeRecyclerAdapter homeRecyclerAdapter = new HomeRecyclerAdapter(getContext(), list);
         homerecyclerview.setAdapter(homeRecyclerAdapter);
         homeRecyclerAdapter.notifyDataSetChanged();
 
 
-
         //Code for Carousel View
-        carouselView = (CarouselView)parent.findViewById(R.id.carouselView);
+        CarouselView carouselView = parent.findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
         return parent;
     }
 
-       ImageListener imageListener  = new ImageListener() {
+    private ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
             imageView.setImageResource(sampleImages[position]);

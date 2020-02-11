@@ -1,7 +1,10 @@
 package com.estate.real;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.estate.real.ui.Item;
+import com.estate.real.ui.RecyclerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -12,7 +15,10 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements
+        RecyclerFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,4 +37,14 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    @Override
+    public void onViewAllClicked(ArrayList<Item> items) {
+        Toast.makeText(this, "View All Clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onListItemClicked(int position, Item item) {
+        Toast.makeText(this, "Position: " + position + " Item: " +
+                item.getPrice(), Toast.LENGTH_SHORT).show();
+    }
 }

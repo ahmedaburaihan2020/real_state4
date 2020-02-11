@@ -1,8 +1,10 @@
 package com.estate.real.ui;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Item {
+public class Item implements Parcelable {
     private String name, price, publisher, area, time;
     private Uri thumbnail, publisherLogo;
 
@@ -79,4 +81,42 @@ public class Item {
     public void setPublisherLogo(Uri publisherLogo) {
         this.publisherLogo = publisherLogo;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.price);
+        dest.writeString(this.publisher);
+        dest.writeString(this.area);
+        dest.writeString(this.time);
+        dest.writeParcelable(this.thumbnail, flags);
+        dest.writeParcelable(this.publisherLogo, flags);
+    }
+
+    protected Item(Parcel in) {
+        this.name = in.readString();
+        this.price = in.readString();
+        this.publisher = in.readString();
+        this.area = in.readString();
+        this.time = in.readString();
+        this.thumbnail = in.readParcelable(Uri.class.getClassLoader());
+        this.publisherLogo = in.readParcelable(Uri.class.getClassLoader());
+    }
+
+    public static final Parcelable.Creator<Item> CREATOR = new Parcelable.Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel source) {
+            return new Item(source);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
 }
